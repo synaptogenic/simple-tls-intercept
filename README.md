@@ -22,15 +22,15 @@ traffic was proxied.
 
 ## Proposed Solution
 
-An alternative to a proxy is to perform a [MITM style attack][mitm-attack] where you intercept
-the TLS connection to the server and establish your own TLS connection. You can
-then view the plain text traffic between the application and the server.
-Typically, applications will hard code DNS names and specific ports to
-communicate with the server on (or just rely on the default 443). If we hijack
-DNS resolution for the domains the application is resolving and bind to 443
-locally we can setup an intercept and pretend we are the server. Since we don't
-have the private keys of the server, we will need to generate our own CA and
-add it to the trust store the application is using.
+An alternative to a proxy is to perform a [MITM style attack][mitm-attack]
+where you intercept the TLS connection to the server and establish your own TLS
+connection. You can then relay and view the plain text traffic between the
+application and the server. Typically, applications will hard code DNS names
+and specific ports to communicate with the server on (or just rely on the
+default 443). If we hijack DNS resolution for the domains the application is
+resolving and bind to 443 locally we can setup an intercept and pretend we are
+the server. Since we don't have the private keys of the server, we will need to
+generate our own CA and add it to the trust store the application is using.
 
 ## Known Issues
 
@@ -70,6 +70,7 @@ cert/key on startup.
 - create raw mode that writes raw TLS traffic out
 - create newline mode that visualizes traffic and outputs lines
 - create http mode that detects HTTP and can display req/resp
+- remove CA and /etc/hosts system modification on shutdown
 
 [mitm-attack]: https://en.wikipedia.org/wiki/Man-in-the-middle_attack
 [frida]: https://frida.re
