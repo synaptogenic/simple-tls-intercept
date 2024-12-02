@@ -56,21 +56,8 @@ cert/key on startup.
 
 ## TODO
 
-- accept a list of domains to intercept
-- generate a CA cert/key and store them locally
-- install CA cert into keychain
-- generate certs for each domain
-- rewrite /etc/hosts to force resolution for those domains to localhost
-- accept tls connections for those domains
-  - clients must use SNI, or select the first domain as a default
-- resolve domains directly bypassing /etc/hosts
-  - use locally configured nameserver
-- feed clients the fake certs to establish connection
-- establish connections in both directions and forward traffic
-- create raw mode that writes raw TLS traffic out
 - create newline mode that visualizes traffic and outputs lines
-- create http mode that detects HTTP and can display req/resp
-- remove CA and /etc/hosts system modification on shutdown
+- write readme usage + cli usage/help
 
 [mitm-attack]: https://en.wikipedia.org/wiki/Man-in-the-middle_attack
 [frida]: https://frida.re
